@@ -13,7 +13,7 @@ let seedPoints = [];
 let personDrawing = false;
 
 function preload() {
-  sketchRNN = ml5.sketchRNN('catpig');
+  sketchRNN = ml5.sketchRNN('cat');
 }
 
 function startDrawing() {
