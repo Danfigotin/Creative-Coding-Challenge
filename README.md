@@ -6,7 +6,7 @@ In here is code for our presentation on making a Interactive drawing program tut
 ##__Pictures of the code:__
 
 
-## __Things that stood out:__
+##__Things that stood out:__
 
 
 ## __Things that are important:__
