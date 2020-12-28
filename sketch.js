@@ -64,7 +64,8 @@ function sketchRNNStart() {
     seedPath.push(strokePath);
   }
   
-  
+  // ^^ seedPath == start generating after collecting all points from user. It's what you are starting the machine model with. It's an array. the seed path tels the sketch...
+  // ...model where you left off (what was you rlast point) so the sktch RNN know where to start
   
   
   sketchRNN.generate(seedPath, gotStrokePath);
@@ -105,7 +106,8 @@ function draw() {
     // seedPath.push(strokePath);
 
     line(mouseX, mouseY, pmouseX, pmouseY); //Creating a line (pmouse = previous mouse position so it saves the starting point of the line)
-    seedPoints.push(createVector(mouseX, mouseY)); //CREATING A MOVEMENT WITH POINTS (seedPoints) (.push adds to the array)
+    seedPoints.push(createVector(mouseX, mouseY)); //ADDING TO SEEDPOINTS! STARTING FROM WHERE THE USER LEFT OFF, NEW POINTS ARE ADDED TO THE ARRAY.///
+                                                   //THESE POINTS ARE FROM TAKEN FROM THE SKETCH RNN MODEL (which is vector) -------- Go to line 55
   }
 
   if (currentStroke) {
@@ -122,8 +124,8 @@ function draw() {
     if (nextPen == 'down') { //IF RNN IS DRAWING
       line(x, y, x + currentStroke.dx, y + currentStroke.dy); //ADD ON TO THE WHERE THE CURRENT STROKE (WHICH IS NOW THE PREVIOUS) ONE ENDED
     }
-    x += currentStroke.dx; //ADDING TO THE X POSITION
-    y += currentStroke.dy; // ADDING TO THE Y POSITION
+    x += currentStroke.dx; //ADDING TO THE X POSITION -- dx = a change in x (vector)
+    y += currentStroke.dy; // ADDING TO THE Y POSITION -- dy = a change in y (vector)
     nextPen = currentStroke.pen; //MAKE THE RNN THE CURRENT STROKE
     currentStroke = null; 
     sketchRNN.generate(gotStrokePath); //CALLING FUNCTION IN LINE 85 - which essentially gives the next path, the next vector until the drawing is complete
