@@ -104,28 +104,29 @@ function draw() {
     // y += strokePath.dy;
     // seedPath.push(strokePath);
 
-    line(mouseX, mouseY, pmouseX, pmouseY);
-    seedPoints.push(createVector(mouseX, mouseY));
+    line(mouseX, mouseY, pmouseX, pmouseY); //Creating a line (pmouse = previous mouse position so it saves the starting point of the line)
+    seedPoints.push(createVector(mouseX, mouseY)); //CREATING A MOVEMENT WITH POINTS (seedPoints) (.push adds to the array)
   }
 
   if (currentStroke) {
 
     if (nextPen == 'end') {
-      sketchRNN.reset();
-      sketchRNNStart();
-      currentStroke = null;
-      nextPen = 'down';
+      sketchRNN.reset(); //RESET THE MODEL
+      sketchRNNStart(); //TO DRAW A NEW VERSION
+      currentStroke = null; //TIME FOR NEW STROKE
+      nextPen = 'down'; //DOWN MEANS NEXT PEN START DRAWING (RNN = next pen)
       return;
+//IF YOU WANT TO DRAW IT ONCE---------------------DELETE EVERYTHING HERE ^^ AND ADD noLoop(); return;
     }
 
-    if (nextPen == 'down') {
-      line(x, y, x + currentStroke.dx, y + currentStroke.dy);
+    if (nextPen == 'down') { //IF RNN IS DRAWING
+      line(x, y, x + currentStroke.dx, y + currentStroke.dy); //ADD ON TO THE WHERE THE CURRENT STROKE (WHICH IS NOW THE PREVIOUS) ONE ENDED
     }
-    x += currentStroke.dx;
-    y += currentStroke.dy;
-    nextPen = currentStroke.pen;
-    currentStroke = null;
-    sketchRNN.generate(gotStrokePath);
+    x += currentStroke.dx; //ADDING TO THE X POSITION
+    y += currentStroke.dy; // ADDING TO THE Y POSITION
+    nextPen = currentStroke.pen; //MAKE THE RNN THE CURRENT STROKE
+    currentStroke = null; 
+    sketchRNN.generate(gotStrokePath); //CALLING FUNCTION IN LINE 85 - which essentially gives the next path, the next vector until the drawing is complete
 
   }
 
