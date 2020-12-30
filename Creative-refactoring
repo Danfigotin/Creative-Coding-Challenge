@@ -1,0 +1,11 @@
+CAT --> DOG:
+*on line 16
+*Replace ml5 drawing with other stuff
+*Link to other drawings: https://github.com/ml5js/ml5-library/blob/main/src/SketchRNN/models.js
+
+Ulitmate randomizer:
+*Line 90 & 95
+*Add background (background(255, mouseX, mouseY)) to: if person drawing
+*Allows for surprise of what you draw with fun colours
+*background goes away after you are done drawing
+*Changing stroke (line 95) allows to distinguish what you drew and what the machine is drawing
