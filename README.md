@@ -3,6 +3,9 @@
 ## __Description:__
 <p><b>Our creative coding challenge is called the Interactive sketch. The Interactive Sketch uses the pre-trained Sketch RNN machine learning model (available with the ml5.js library) to create a p5.js sketch that finishes a person’s drawing. Also, we used this video https://www.youtube.com/watch?v=ZCXkvwLxBrA&amp;feature=emb_logo from the coding train as a reference.</b></p>
 
+## __Slides:__
+(https://docs.google.com/presentation/d/1WfZlm2Twl99SZ5NK7fIHjCb963bBYiAKOtvZHelE26c/edit#slide=id.gb305a41e7b_0_26)
+
 ## __Preview:__
 <img src = "https://magenta.tensorflow.org/assets/sketch_rnn_demo/img/sketch_garden.gif">
 
