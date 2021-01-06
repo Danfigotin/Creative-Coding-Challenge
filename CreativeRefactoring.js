@@ -12,7 +12,7 @@ let seedPoints = [];
 let personDrawing = false;
 
 function preload() {
-  sketchRNN = ml5.sketchRNN('cat');
+  sketchRNN = ml5.sketchRNN('everything');
 }
 
 function startDrawing() {
@@ -89,11 +89,12 @@ function gotStrokePath(error, strokePath) {
 }
 
 function draw() {
-  stroke(0);
+  stroke(255, 100, 10);
   strokeWeight(4);
 
 
   if (personDrawing) {
+    background(255, mouseX, mouseY)
     // let strokePath = {
     //   dx: mouseX - pmouseX,
     //   dy: mouseY - pmouseY,
